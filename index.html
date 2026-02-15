@@ -7,12 +7,12 @@
 <style>
 body {
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    font-family: 'Comic Sans MS', cursive;
+    background-image: url("2.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Lucida Handwriting', cursive, sans-serif;
     text-align: center;
     padding-top: 100px;
-    background-image: url("2.jpg");
-    font-family: 'Comic Sans MS', cursive;
-
 }
 
 .container {
@@ -49,6 +49,7 @@ button {
     font-size: 14px;
     cursor: pointer;
     transition: 0.3s;
+    border: black solid 0.5px;
 }
 
 button:hover {
@@ -59,13 +60,29 @@ button:hover {
 .hidden {
     display: none;
 }
+
+/* Temporary message style */
+#tempMessage {
+    margin-top: 15px;
+    background: #ffe6eb;
+    color: #ff1e4d;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
-    <h2>Hey💕</h2>
+    <h2>Hey hbiba💕</h2>
     
     <p id="nameText">Write your name 😌</p>
     <input type="text" id="nameInput" placeholder="Your name...">
@@ -73,20 +90,26 @@ button:hover {
     <div id="message1" class="hidden">
         <h2>Stop😳</h2>
         <p id="revealText"></p>
-        <button onclick="askOkay()">Continue </button>
+        <button onclick="askOkay()">Continue</button>
     </div>
 
     <div id="message2" class="hidden">
         <h2>nti bikhir ?</h2>
         <button onclick="askAgain()">Yes 💖</button>
-        <button onclick="askAgain()">No </button>
+        <button onclick="askAgain()">No</button>
     </div>
 
     <div id="message3" class="hidden">
-        <h2>Can I ask you something? </h2>
+        <h2>Can I ask you something? 😌</h2>
         <button onclick="goToIndex()">Yes 💕</button>
-        <button onclick="alert('ghir khtari ah 🫥 ')">No </button>
+        <button onclick="showTempMessage()">No</button>
     </div>
+
+    <!-- Temporary Message -->
+    <div id="tempMessage" class="hidden">
+        <p>Hehe choose yes 😏💕</p>
+    </div>
+
 </div>
 
 <script>
@@ -96,6 +119,7 @@ const message2 = document.getElementById("message2");
 const message3 = document.getElementById("message3");
 const revealText = document.getElementById("revealText");
 const nameText = document.getElementById("nameText");
+const tempMessage = document.getElementById("tempMessage");
 
 let triggered = false;
 
@@ -103,11 +127,10 @@ input.addEventListener("input", function() {
     if (input.value.length === 1 && !triggered) {
         triggered = true;
 
-        // Hide text and input
         nameText.style.display = "none";
         input.style.display = "none";
 
-        revealText.innerHTML = "I know who you are 😌<br>You are... my favorite person 💕";
+        revealText.innerHTML = "I know who you are 😌<br>You are... my cupcake 💕";
         message1.classList.remove("hidden");
     }
 });
@@ -125,9 +148,15 @@ function askAgain() {
 function goToIndex() {
     window.location.href = "index2.html";
 }
+
+function showTempMessage() {
+    tempMessage.classList.remove("hidden");
+
+    setTimeout(() => {
+        tempMessage.classList.add("hidden");
+    }, 3000);
+}
 </script>
 
 </body>
 </html>
-
-

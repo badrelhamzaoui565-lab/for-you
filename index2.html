@@ -57,41 +57,9 @@ button {
     background-color: #ff2e63;
     color: white;
     right: 20px;
-    transition: transform 0.4s ease; /* Smooth movement */
+    transition: transform 0.4s ease;
 }
 
-.letter {
-    display: none;
-    margin-top: 30px;
-    background: white;
-    color: #ff4e88;
-    padding: 25px;
-    border-radius: 20px;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
-}
-.prank {
-    display: none;
-    margin-top: 30px;
-    animation: fadeIn 0.1s ease-in-out;
-}
-
-.prank h2 {
-    color: rgb(10, 19, 19);
-}
-/* Blur effect */
-.blur {
-    filter: blur(1px);
-}
-
-/* Prank overlay */
 .prank {
     position: fixed;
     top: 0;
@@ -104,7 +72,6 @@ button {
     align-items: center;
     flex-direction: column;
     z-index: 1000;
-   
 }
 
 .prank-content {
@@ -113,7 +80,7 @@ button {
     border-radius: 20px;
     text-align: center;
     animation: fadeIn 0.1s ease-in-out;
-    border: darkred 10px solid black;
+    border: 10px solid black;
 }
 
 .prank-content img {
@@ -121,22 +88,16 @@ button {
     border-radius: 15px;
 }
 
-.return-btn {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    background: #ff4e88;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
+
 /* When prank is active */
 body.prank-active > *:not(.prank) {
     filter: blur(8px);
     pointer-events: none;
 }
-
 </style>
 </head>
 
@@ -150,25 +111,21 @@ body.prank-active > *:not(.prank) {
         <button id="noBtn">No </button>
     </div>
     <div>
-        <p style="color: black; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">mathawlich tki 3la no</p> 
+        <p style="color: black;">mathawlich tki 3la no</p> 
     </div>
-
-   
 </div>
+
 <div class="prank" id="prankBox">
     <div class="prank-content">
         <img src="cat.jpg">
         <h2>raki haaaaamda tki 3la yes w henina a israe</h2>
-        <button class="return-btn" id="returnBtn" style="background: #ff4e88; color: white; border: 1px solid black;"> <- </button>
     </div>
 </div>
-
 
 <script>
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const prankBox = document.getElementById("prankBox");
-const returnBtn = document.getElementById("returnBtn");
 
 let hoverCount = 0;
 
@@ -191,38 +148,28 @@ noBtn.addEventListener("mouseover", () => {
 
     if (hoverCount >= 5) {
 
-        // little shake before prank
-        noBtn.classList.add("shake");
-
         setTimeout(() => {
             prankBox.style.display = "flex";
-            setTimeout(() => {
-                prankBox.classList.add("show");
-            }, 10);
-
             document.body.classList.add("prank-active");
             noBtn.style.display = "none";
-            yesBtn.classList.add("grow"); // yes button grows
+
+            // Show prank for 5 seconds then disappear
+            setTimeout(() => {
+                prankBox.style.display = "none";
+                document.body.classList.remove("prank-active");
+                noBtn.style.display = "block";
+                noBtn.style.transform = "translate(0,0)";
+                hoverCount = 0;
+            }, 5000);
+
         }, 300);
     }
-});
-
-returnBtn.addEventListener("click", () => {
-    prankBox.classList.remove("show");
-
-    setTimeout(() => {
-        prankBox.style.display = "none";
-        document.body.classList.remove("prank-active");
-        hoverCount = 0; // reset tries
-    }, 300);
 });
 
 yesBtn.addEventListener("click", () => {
     window.location.href = "letter.html";
 });
 </script>
-
-
 
 </body>
 </html>

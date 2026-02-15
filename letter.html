@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,8 @@ body {
     align-items: center;
     font-family: 'Segoe UI', sans-serif;
     overflow: hidden;
-    background-image: url("Pink\ PC\ Wallpapers.jpg");
+    background-image: url("Pink PC Wallpapers.jpg");
+  
 }
 
 /* Envelope wrapper */
@@ -45,34 +47,23 @@ body {
     transform-origin: top;
     transition: transform 0.8s ease;
     z-index: 3;
-    border: black solid 0.5px;
 }
 
-/* Heart seal */
+/* Seal */
 .seal {
     position: absolute;
     top: 110px;
     left: 50%;
     transform: translateX(-50%);
-   
     width: 76px;
     height: 80px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    font-size: 20px;
     z-index: 4;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    ;
-
     background-image: url("sticker.jpg");
-    background-size: cover;       /* makes image fill circle */
-    background-position: center;  /* centers the image */
-    background-repeat: no-repeat; /* prevents repeating */
+    background-size: cover;
+    background-position: center;
 }
-
 
 /* Letter */
 .letter {
@@ -82,14 +73,64 @@ body {
     padding: 30px;
     border-radius: 10px;
     text-align: center;
-    color: #4a1c2c;
-    font-size: 11px;
+    color: #000000;
+    font-size: 12.1px;
     line-height: 1.6;
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     transform: scale(0);
     opacity: 0;
     transition: all 0.6s ease;
     background-image: url("download.jpg");
+}
+
+/* Image containers */
+.img-box {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+#leftBox {
+    left: 60px;
+}
+
+#rightBox {
+    right: 60px;
+}
+@keyframes floatUpDown {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Text above images */
+.img-text {
+    color: rgb(97, 1, 1);
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: opacity 1s ease;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     animation: floatUpDown 2s ease-in-out infinite;
+}
+
+/* Images */
+.side-img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 1s ease;
+    transform: rotate(270deg);
+}
+
+.show-img {
+    opacity: 1;
 }
 
 /* Open animations */
@@ -99,11 +140,10 @@ body {
 
 .wrapper.open .seal {
     opacity: 0;
-    transition: 0.1s;
 }
 
 .letter.show {
-    transform: scale(1.3);
+    transform: scale(1.2);
     opacity: 1;
 }
 
@@ -118,6 +158,18 @@ body {
 
 <body>
 
+<!-- LEFT IMAGE -->
+<div class="img-box" id="leftBox">
+    <div class="img-text" id="leftText">My Pretty Girl 💕</div>
+    <img src="isou4.jpeg" class="side-img" id="leftPic">
+</div>
+
+<!-- RIGHT IMAGE -->
+<div class="img-box" id="rightBox">
+    <div class="img-text" id="rightText">My cupcake 💖</div>
+    <img src="isou2.jpeg" class="side-img" id="rightPic">
+</div>
+
 <div class="wrapper" id="wrapper">
     <div class="envelope">
         <div class="flap"></div>
@@ -128,45 +180,36 @@ body {
 
 <div class="letter" id="letter" style="font-family: lucida handwriting, cursive, sans-serif;">
     <h2>My Love israe zwina 💖</h2>
-    <p>
-         israe. saraha l fikra jatni chhal hadi wlkn
-        makntch 3wal ndirhalk daba knt kan3ayen wahed lmonasaba
-        akhra 3refti kansaweb hadchi w mtreded kan9ul wach 
-        ghay3jebha wla la , wlkn machi hadchi li mohim 
-        ana hadchi knt kankhdem 3lih 9bl b chi youmayen haka
-        w kif ma 9ltlk rah had l fikra 3ndi chhal hadi fhmti 
-        mn hadchi bghitk t3erfi a israe bli raki kathemini machi 
-        kif ma kat9uli ,nti ahsen haja w93atli fhyati a israe
-        3merni fhyati ma tkhayelt ghan3ref chi bnt bhalk w wakha 
-        yrje3 bya zman loor ghankhtarek nti dima mn bin ga3 lbnat,
-        ghatsewlini 3lach w ymknli nkhtar chi whda li hsen wla ma3reft 
-        israe, ana bghitk nti!! rah 3adi tfekri haka wlkn bghitk 
-        t3erfi bli ana kayen w t9dri tji tswlini fo9ach ma bghiti
-        i love you, nti a israe khaski tchufi rassek kidayra bach 
-        t3erfi 9imtk, ymkn kant9l9o mn b3dyatna b3d lmerat ymkn 
-        wlkn 3merni ghanl9a f chi whda hadchi li fik nti chi haja 
-        katkhelini nb9a nbghik dima wllah mn ghir anaki wllah hta katbani
-        bhal chi angel rah bsiif nb9a knbghik but ana mknhdrch 3la lhwayej li ghaykheliw
-        ay wahed t3ejbih, ana kanhder 3la lhwayej li kayhrbo mnha nas 
-        ghir hdertk matalan wllah hta knhmaa9 3liha knbghi nb9a ghir ntsntlikk
-        knbghik fach kat3a9bini 3la chi haja lmslahti wla lmslahtna 
-        knbghikk fach katji 3ndi w t9ulilya badr wach n9dr n3awedlik wahed lhaja
-        knbghik bzaaf fach kat9l9i knbghik fach kat3esbi knbghik fach kathedri knbghik 
-        fach makathedrich knbghik, nti raki hyati w wllah a israe wakha y3tiwni bnat denya kamlin
-        mjmo3in w lya bohdi ghankhtarek ghir nti ana mtaeked hadchi ghaykhrb9k but 
-        ty9ini nti a hbiba 3mer kant wla ghatkun chi bnt bhalek had lhdra kn9ulha mn 9lbi he9llah
-        muhim this is your gift bsiiiita bzaf kun knti 9riba kun chretlik chi haja wla 3titk chi busa wla chi hug 
-        but hanya nti b3ida whadchi li 9dert ndir w israe chufi rah knbghiik knbghiik bzaaaf 
-        nti hya 3mri a lhbiba dyali nti my angel nti hya kulchi bnisba lya w chukran 3laa kulchi 
-        hyati rah perfect w nti kayna fiha w smhilya bzaf ila ghlet fh9ek chi nhar i promise bli 
-        ghanweli hsen mn haka wllah matkhafich and i love you ❤️  
-
-        Forever yours.
-        Forever yours.
-    </p>
+    <p>israe. saraha l fikra jatni chhal hadi wlkn makntch 3wal ndirhalk daba knt
+         kan3ayen wahed lmonasaba akhra 3refti kansaweb hadchi w mtreded kan9ul wach
+        ghay3jebha wla la , wlkn machi hadchi li mohim ana hadchi knt kankhdem 3lih
+        9bl b chi youmayen haka w kif ma 9ltlk rah had l fikra 3ndi chhal hadi fhmti
+        mn hadchi bghitk t3erfi a israe bli raki kathemini machi kif ma kat9uli ,
+        nti ahsen haja w93atli fhyati a israe 3merni fhyati ma tkhayelt ghan3ref chi bnt bhalk 
+      w wakha yrje3 bya zman loor ghankhtarek nti dima mn bin ga3 lbnat, 
+         ghatsewlini 3lach w ymknli nkhtar chi whda li hsen wla ma3reft israe,
+        ana bghitk nti!! rah 3adi tfekri haka wlkn bghitk t3erfi bli ana kayen
+        w t9dri tji tswlini fo9ach ma bghiti i love you, nti a israe khaski tchufi
+         rassek kidayra bach t3erfi 9imtk, ymkn kant9l9o mn b3dyatna b3d lmerat ymkn 
+        wlkn 3merni ghanl9a f chi whda hadchi li fik nti chi haja katkhelini nb9a 
+         nbghik dima wllah mn ghir anaki wllah hta katbani bhal chi angel rah bsiif
+        nb9a knbghik but ana mknhdrch 3la lhwayej li ghaykheliw ay wahed t3ejbih,
+         ana kanhder 3la lhwayej li kayhrbo mnha nas ghir hdertk matalan wllah hta
+        knhmaa9 3liha knbghi nb9a ghir ntsntlikk knbghik fach kat3a9bini 3la chi
+        haja lmslahti wla lmslahtna knbghikk fach katji 3ndi w t9ulilya badr wach
+        n9dr n3awedlik wahed lhaja knbghik bzaaf fach kat9l9i knbghik fach kat3esbi
+        knbghik fach kathedri knbghik fach makathedrich knbghik, 
+        nti raki hyati w wllah a israe wakha y3tiwni bnat denya kamlin mjmo3in
+        w lya bohdi ghankhtarek ghir nti ana mtaeked hadchi ghaykhrb9k but ty9ini
+        nti a hbiba 3mer kant wla ghatkun chi bnt bhalek had lhdra kn9ulha mn 9lbi
+        he9llah muhim this is your gift bsiiiita bzaf kun knti 9riba kun chretlik
+        chi haja wla 3titk chi busa wla chi hug but hanya nti b3ida whadchi li 9dert
+        ndir w israe chufi rah knbghiik knbghiik bzaaaf nti hya 3mri a lhbiba dyali
+         nti my angel nti hya kulchi bnisba lya w chukran 3laa kulchi hyati rah perfect
+         w nti kayna fiha w smhilya bzaf ila ghlet fh9ek chi nhar i promise bli ghanweli
+        hsen mn haka wllah matkhafich and i love you ❤️ Forever yours.</p>
 </div>
 
-<!-- 🎵 Background Music -->
 <audio id="loveSong" loop>
     <source src="song.mp3" type="audio/mpeg">
 </audio>
@@ -175,14 +218,21 @@ body {
 const wrapper = document.getElementById("wrapper");
 const letter = document.getElementById("letter");
 const song = document.getElementById("loveSong");
+const leftPic = document.getElementById("leftPic");
+const rightPic = document.getElementById("rightPic");
+const leftText = document.getElementById("leftText");
+const rightText = document.getElementById("rightText");
 
 wrapper.addEventListener("click", () => {
     wrapper.classList.add("open");
 
     setTimeout(() => {
         letter.classList.add("show");
+        leftPic.classList.add("show-img");
+        rightPic.classList.add("show-img");
+        leftText.style.opacity = "1";
+        rightText.style.opacity = "1";
 
-        // 🎵 Start music with soft fade-in
         song.volume = 0;
         song.play();
 
